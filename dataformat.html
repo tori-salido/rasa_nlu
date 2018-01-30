@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Training Data Format &mdash; rasa NLU 0.10.6 documentation</title>
+  <title>Training Data Format &mdash; rasa NLU 0.11.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="rasa NLU 0.10.6 documentation" href="index.html"/>
+    <link rel="top" title="rasa NLU 0.11.0 documentation" href="index.html"/>
         <link rel="next" title="Using rasa NLU as a HTTP server" href="http.html"/>
         <link rel="prev" title="Migrating an existing app" href="migrating.html"/>
 <link href="_static/css/rasa_theme.css" rel="stylesheet" type="text/css">
@@ -70,7 +70,7 @@
             
             
               <div class="version">
-                0.10
+                0.11
               </div>
             
           
@@ -108,6 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#entity-synonyms">Entity Synonyms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#regular-expression-features">Regular Expression Features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#markdown-format">Markdown Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#organization">Organization</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="http.html">Using rasa NLU as a HTTP server</a></li>
@@ -117,6 +118,7 @@
 <li class="toctree-l1"><a class="reference internal" href="persist.html">Model Persistence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="languages.html">Language Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pipeline.html">Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="migrations.html">Migration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -210,6 +212,7 @@
 <p>The <code class="docutils literal"><span class="pre">common_examples</span></code> are used to train both the entity and the intent models. You should put all of your training
 examples in the <code class="docutils literal"><span class="pre">common_examples</span></code> array. The next section describes in detail how an example looks like.
 Regex features are a tool to help the classifier detect entities or intents and improve the performance.</p>
+<p>You can use <a class="reference external" href="https://rodrigopivi.github.io/Chatito/">Chatito</a> , a tool for generating training datasets in rasa&#8217;s format using a simple DSL.</p>
 <div class="section" id="common-examples">
 <h2>Common Examples<a class="headerlink" href="#common-examples" title="Permalink to this headline">¶</a></h2>
 <p>Common examples have three components: <code class="docutils literal"><span class="pre">text</span></code>, <code class="docutils literal"><span class="pre">intent</span></code>, and <code class="docutils literal"><span class="pre">entities</span></code>. The first two are strings while the last one is an array.</p>
@@ -349,6 +352,17 @@ training data!</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="organization">
+<h2>Organization<a class="headerlink" href="#organization" title="Permalink to this headline">¶</a></h2>
+<p>The training data can either be stored in a single file or split into multiple files.
+For larger training examples splitting the training data into multiple files (e.g. one per intent) might be
+beneficial in terms of maintainability.</p>
+<p>Storing files with different file formats (e.g. markdown and JSON) in one directory is currently not supported.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Splitting the training data into multiple files currently only words for markdown and JSON data. For other file formats you have to use the single-file approach.</p>
+</div>
+</div>
 </div>
 
 
@@ -391,12 +405,13 @@ training data!</p>
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
         <span class="fa fa-book"> Other Versions</span>
-        v: 0.10.6
+        v: 0.11.0
         <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
         <dl>
             <dt>Tags</dt>
+            <dd><a href="0.11.0/dataformat.html">0.11.0</a></dd>
             <dd><a href="0.10.6/dataformat.html">0.10.6</a></dd>
             <dd><a href="0.10.5/dataformat.html">0.10.5</a></dd>
             <dd><a href="0.10.4/dataformat.html">0.10.4</a></dd>
@@ -442,7 +457,7 @@ training data!</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.10.6',
+            VERSION:'0.11.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

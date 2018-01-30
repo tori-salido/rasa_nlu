@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configuration &mdash; rasa NLU 0.10.6 documentation</title>
+  <title>Configuration &mdash; rasa NLU 0.11.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="rasa NLU 0.10.6 documentation" href="index.html"/>
+    <link rel="top" title="rasa NLU 0.11.0 documentation" href="index.html"/>
         <link rel="next" title="Migrating an existing app" href="migrating.html"/>
         <link rel="prev" title="Tutorial: A simple restaurant search bot" href="tutorial.html"/>
 <link href="_static/css/rasa_theme.css" rel="stylesheet" type="text/css">
@@ -70,7 +70,7 @@
             
             
               <div class="version">
-                0.10
+                0.11
               </div>
             
           
@@ -153,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="persist.html">Model Persistence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="languages.html">Language Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pipeline.html">Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="migrations.html">Migration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -479,7 +480,7 @@ If set to <code class="docutils literal"><span class="pre">null</span></code> lo
 </tr>
 <tr class="field-even field"><th class="field-name">Examples:</th><td class="field-body"><code class="docutils literal"><span class="pre">&quot;data/example.json&quot;</span></code></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Description:</th><td class="field-body">Location of the training data.</td>
+<tr class="field-odd field"><th class="field-name">Description:</th><td class="field-body">Location of the training data. For JSON and markdown data, this can either be a single file or a directory containing multiple training data files.</td>
 </tr>
 </tbody>
 </table>
@@ -492,7 +493,7 @@ If set to <code class="docutils literal"><span class="pre">null</span></code> lo
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><code class="docutils literal"><span class="pre">list</span></code></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Examples:</th><td class="field-body"><code class="docutils literal"><span class="pre">['*']</span></code>, <code class="docutils literal"><span class="pre">['*.mydomain.com',</span> <span class="pre">'api.domain2.net']</span></code></td>
+<tr class="field-even field"><th class="field-name">Examples:</th><td class="field-body"><code class="docutils literal"><span class="pre">[&quot;*&quot;]</span></code>, <code class="docutils literal"><span class="pre">[&quot;*.mydomain.com&quot;,</span> <span class="pre">&quot;api.domain2.net&quot;]</span></code></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Description:</th><td class="field-body">List of domain patterns from where CORS (cross-origin resource sharing) calls are allowed.
 The default value is <code class="docutils literal"><span class="pre">[]</span></code> which forbids all CORS requests.</td>
@@ -539,7 +540,7 @@ Otherwise, the output will be formatted according to the API specified.</td>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><code class="docutils literal"><span class="pre">str</span></code></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Examples:</th><td class="field-body"><code class="docutils literal"><span class="pre">&quot;en_core_web_sm&quot;</span></code></td>
+<tr class="field-even field"><th class="field-name">Examples:</th><td class="field-body"><code class="docutils literal"><span class="pre">&quot;en_core_web_md&quot;</span></code></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Description:</th><td class="field-body">If the spacy model to be used has a name that is different from the language tag (<code class="docutils literal"><span class="pre">&quot;en&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;de&quot;</span></code>, etc.),
 the model name can be specified using this configuration variable. The name will be passed to <code class="docutils literal"><span class="pre">spacy.load(name)</span></code>.</td>
@@ -820,12 +821,13 @@ This is used with the <code class="docutils literal"><span class="pre">C</span><
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
         <span class="fa fa-book"> Other Versions</span>
-        v: 0.10.6
+        v: 0.11.0
         <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
         <dl>
             <dt>Tags</dt>
+            <dd><a href="0.11.0/config.html">0.11.0</a></dd>
             <dd><a href="0.10.6/config.html">0.10.6</a></dd>
             <dd><a href="0.10.5/config.html">0.10.5</a></dd>
             <dd><a href="0.10.4/config.html">0.10.4</a></dd>
@@ -871,7 +873,7 @@ This is used with the <code class="docutils literal"><span class="pre">C</span><
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.10.6',
+            VERSION:'0.11.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

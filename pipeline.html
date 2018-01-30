@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Processing Pipeline &mdash; rasa NLU 0.10.6 documentation</title>
+  <title>Processing Pipeline &mdash; rasa NLU 0.11.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="rasa NLU 0.10.6 documentation" href="index.html"/>
-        <link rel="next" title="Frequently Asked Questions" href="faq.html"/>
+    <link rel="top" title="rasa NLU 0.11.0 documentation" href="index.html"/>
+        <link rel="next" title="Evaluation" href="evaluation.html"/>
         <link rel="prev" title="Language Support" href="languages.html"/>
 <link href="_static/css/rasa_theme.css" rel="stylesheet" type="text/css">
 
@@ -70,7 +70,7 @@
             
             
               <div class="version">
-                0.10
+                0.11
               </div>
             
           
@@ -136,6 +136,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#component-lifecycle">Component Lifecycle</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">Evaluation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="migrations.html">Migration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -241,7 +242,7 @@ For example, the <code class="docutils literal"><span class="pre">entities</span
 <div class="section" id="pre-configured-pipelines">
 <h2>Pre-configured Pipelines<a class="headerlink" href="#pre-configured-pipelines" title="Permalink to this headline">¶</a></h2>
 <p>To ease the burden of coming up with your own processing pipelines, we provide a couple of ready to use templates
-which can be used by settings the <code class="docutils literal"><span class="pre">pipeline</span></code> configuration value to the name of the template you want to use.
+which can be used by setting the <code class="docutils literal"><span class="pre">pipeline</span></code> configuration value to the name of the template you want to use.
 Here is a list of the existing templates:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -608,8 +609,7 @@ if your training data contains the following examples:</p>
                 <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
                 <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
                 <span class="nt">&quot;entity&quot;</span><span class="p">:</span> <span class="s2">&quot;city&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;extractor&quot;</span> <span class="s2">&quot;ner_mitie&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;processor&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ner_synonyms&quot;</span><span class="p">]}]</span>
+               <span class="p">}]</span>
 <span class="p">},</span>
 <span class="p">{</span>
   <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;I got a new flat in NYC.&quot;</span><span class="p">,</span>
@@ -618,8 +618,7 @@ if your training data contains the following examples:</p>
                 <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
                 <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
                 <span class="nt">&quot;entity&quot;</span><span class="p">:</span> <span class="s2">&quot;city&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;extractor&quot;</span> <span class="s2">&quot;ner_mitie&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;processor&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ner_synonyms&quot;</span><span class="p">]}]</span>
+               <span class="p">}]</span>
 <span class="p">}]</span>
 </pre></div>
 </div>
@@ -722,7 +721,7 @@ one component can calculate feature vectors for the training data, store that wi
 component can retrieve these feature vectors from the context and do intent classification.</p>
 <p>Initially the context is filled with all configuration values, the arrows in the image show the call order
 and visualize the path of the passed context. After all components are trained and persisted, the
-final context dictionary is used to persist the models metadata.</p>
+final context dictionary is used to persist the model&#8217;s metadata.</p>
 </div>
 </div>
 
@@ -736,7 +735,7 @@ final context dictionary is used to persist the models metadata.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="faq.html" class="btn btn-neutral float-right" title="Frequently Asked Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="evaluation.html" class="btn btn-neutral float-right" title="Evaluation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="languages.html" class="btn btn-neutral" title="Language Support" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -766,12 +765,13 @@ final context dictionary is used to persist the models metadata.</p>
 <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
         <span class="fa fa-book"> Other Versions</span>
-        v: 0.10.6
+        v: 0.11.0
         <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
         <dl>
             <dt>Tags</dt>
+            <dd><a href="0.11.0/pipeline.html">0.11.0</a></dd>
             <dd><a href="0.10.6/pipeline.html">0.10.6</a></dd>
             <dd><a href="0.10.5/pipeline.html">0.10.5</a></dd>
             <dd><a href="0.10.4/pipeline.html">0.10.4</a></dd>
@@ -817,7 +817,7 @@ final context dictionary is used to persist the models metadata.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.10.6',
+            VERSION:'0.11.0',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
