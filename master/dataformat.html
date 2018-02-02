@@ -199,7 +199,7 @@
 
 
 
-    <p class="scv-banner scv-sphinx_rtd_theme"><a href="../0.11.0/dataformat.html"><b>Warning:</b> This document is for the development version of rasa NLU. The latest version is 0.11.0.</a></p>
+    <p class="scv-banner scv-sphinx_rtd_theme"><a href="../0.11.1/dataformat.html"><b>Warning:</b> This document is for the development version of rasa NLU. The latest version is 0.11.1.</a></p>
 <div class="section" id="training-data-format">
 <span id="section-dataformat"></span><h1>Training Data Format<a class="headerlink" href="#training-data-format" title="Permalink to this headline">¶</a></h1>
 <p>The training data for rasa NLU is structured into different parts, <code class="docutils literal"><span class="pre">common_examples</span></code>, <code class="docutils literal"><span class="pre">entity_synonyms</span></code> and <code class="docutils literal"><span class="pre">regex_features</span></code>. The most important one is <code class="docutils literal"><span class="pre">common_examples</span></code>.</p>
@@ -316,7 +316,7 @@ the zipcode example it might look like this:</p>
             <span class="p">},</span>
             <span class="p">{</span>
                 <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;greet&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;hey[^\s]*&quot;</span>
+                <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;hey[^\\s]*&quot;</span>
             <span class="p">},</span>
         <span class="p">]</span>
     <span class="p">}</span>
@@ -340,7 +340,8 @@ training data!</p>
 </div>
 <div class="section" id="markdown-format">
 <h2>Markdown Format<a class="headerlink" href="#markdown-format" title="Permalink to this headline">¶</a></h2>
-<p>Alternatively training data can be used in the following markdown format (Regex features not supported yet). Examples are listed using the unordered list syntax, e.g. minus <code class="docutils literal"><span class="pre">-</span></code> or asterisk <code class="docutils literal"><span class="pre">*</span></code>:</p>
+<p>Alternatively training data can be used in the following markdown format. Examples are listed using the unordered
+list syntax, e.g. minus <code class="docutils literal"><span class="pre">-</span></code>, asterisk <code class="docutils literal"><span class="pre">*</span></code>, or plus <code class="docutils literal"><span class="pre">+</span></code>:</p>
 <div class="highlight-markdown"><div class="highlight"><pre><span></span>## intent:check_balance
 - what is my balance &lt;!-- no entity --&gt;
 - how much do I have on my [savings](source_account) &lt;!-- entity &quot;source_account&quot; has value &quot;savings&quot; --&gt;
@@ -352,18 +353,22 @@ training data!</p>
 
 ## synonym:savings   &lt;!-- synonyms, method 2 --&gt;
 - pink pig
+
+
+## regex:zipcode
+- [0-9]{5}
 </pre></div>
 </div>
 </div>
 <div class="section" id="organization">
 <h2>Organization<a class="headerlink" href="#organization" title="Permalink to this headline">¶</a></h2>
 <p>The training data can either be stored in a single file or split into multiple files.
-For larger training examples splitting the training data into multiple files (e.g. one per intent) might be
-beneficial in terms of maintainability.</p>
-<p>Storing files with different file formats (e.g. markdown and JSON) in one directory is currently not supported.</p>
+For larger training examples, splitting the training data into multiple files, e.g. one per intent, increases maintainability.</p>
+<p>Storing files with different file formats, i.e. mixing markdown and JSON, is currently not supported.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Splitting the training data into multiple files currently only words for markdown and JSON data. For other file formats you have to use the single-file approach.</p>
+<p class="last">Splitting the training data into multiple files currently only works for markdown and JSON data.
+For other file formats you have to use the single-file approach.</p>
 </div>
 </div>
 </div>
@@ -414,6 +419,7 @@ beneficial in terms of maintainability.</p>
     <div class="rst-other-versions">
         <dl>
             <dt>Tags</dt>
+            <dd><a href="../0.11.1/dataformat.html">0.11.1</a></dd>
             <dd><a href="../0.11.0/dataformat.html">0.11.0</a></dd>
             <dd><a href="../0.10.6/dataformat.html">0.10.6</a></dd>
             <dd><a href="../0.9.2/dataformat.html">0.9.2</a></dd>

@@ -196,7 +196,7 @@
 
 
 
-    <p class="scv-banner scv-sphinx_rtd_theme"><a href="../0.11.0/python.html"><b>Warning:</b> This document is for the development version of rasa NLU. The latest version is 0.11.0.</a></p>
+    <p class="scv-banner scv-sphinx_rtd_theme"><a href="../0.11.1/python.html"><b>Warning:</b> This document is for the development version of rasa NLU. The latest version is 0.11.1.</a></p>
 <div class="section" id="using-rasa-nlu-from-python">
 <span id="section-python"></span><h1>Using rasa NLU from python<a class="headerlink" href="#using-rasa-nlu-from-python" title="Permalink to this headline">¶</a></h1>
 <p>Apart from running rasa NLU as a HTTP server you can use it directly in your python program.
@@ -205,7 +205,7 @@ Rasa NLU supports both Python 2 and 3.</p>
 <h2>Training Time<a class="headerlink" href="#training-time" title="Permalink to this headline">¶</a></h2>
 <p>For creating your models, you can follow the same instructions as non-python users.
 Or, you can train directly in python with a script like the following (using spacy):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rasa_nlu.converters</span> <span class="k">import</span> <span class="n">load_data</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rasa_nlu.training_data</span> <span class="k">import</span> <span class="n">load_data</span>
 <span class="kn">from</span> <span class="nn">rasa_nlu.config</span> <span class="k">import</span> <span class="n">RasaNLUConfig</span>
 <span class="kn">from</span> <span class="nn">rasa_nlu.model</span> <span class="k">import</span> <span class="n">Trainer</span>
 
@@ -237,7 +237,7 @@ the <code class="docutils literal"><span class="pre">'nlp_spacy'</span></code> c
 can be cached to avoid storing the large word vectors more than once in main memory. To use the caching,
 a <code class="docutils literal"><span class="pre">ComponentBuilder</span></code> should be passed when loading and training models.</p>
 <p>Here is a short example on how to create a component builder, that can be reused to train and run multiple models, to train a model:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rasa_nlu.converters</span> <span class="k">import</span> <span class="n">load_data</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rasa_nlu.training_data</span> <span class="k">import</span> <span class="n">load_data</span>
 <span class="kn">from</span> <span class="nn">rasa_nlu.config</span> <span class="k">import</span> <span class="n">RasaNLUConfig</span>
 <span class="kn">from</span> <span class="nn">rasa_nlu.components</span> <span class="k">import</span> <span class="n">ComponentBuilder</span>
 <span class="kn">from</span> <span class="nn">rasa_nlu.model</span> <span class="k">import</span> <span class="n">Trainer</span>
@@ -311,6 +311,7 @@ a <code class="docutils literal"><span class="pre">ComponentBuilder</span></code
     <div class="rst-other-versions">
         <dl>
             <dt>Tags</dt>
+            <dd><a href="../0.11.1/python.html">0.11.1</a></dd>
             <dd><a href="../0.11.0/python.html">0.11.0</a></dd>
             <dd><a href="../0.10.6/python.html">0.10.6</a></dd>
             <dd><a href="../0.9.2/python.html">0.9.2</a></dd>
