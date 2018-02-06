@@ -97,7 +97,7 @@ class CRFEntityExtractor(EntityExtractor):
 
         if training_data.entity_examples:
             # convert the dataset into features
-            dataset = self._create_dataset(training_data.entity_examples)
+            dataset = self._create_dataset(training_data.training_examples)
             # train the model
             self._train_model(dataset)
 
