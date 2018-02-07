@@ -75,7 +75,10 @@ def plot_confusion_matrix(cm, classes,
         plt.text(j, i, cm[i, j],
                  horizontalalignment="center",
                  color="white" if cm[i, j] > thresh else "black")
-
+    fig_size = plt.rcParams["figure.figsize"]
+    fig_size[0] = 18
+    fig_size[1] = 15
+    plt.rcParams["figure.figsize"]
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
 
@@ -88,12 +91,12 @@ def log_evaluation_table(test_y, preds):  # pragma: no cover
     f1 = metrics.f1_score(test_y, preds, average='weighted')
     accuracy = metrics.accuracy_score(test_y, preds)
 
-    logger.info("Intent Evaluation Results")
-    logger.info("F1-Score:  {}".format(f1))
-    logger.info("Precision: {}".format(precision))
-    logger.info("Accuracy:  {}".format(accuracy))
-    logger.info("Classification report: \n{}".format(report))
-
+    print("Intent Evaluation Results")
+    print("F1-Score:  {}".format(f1))
+    print("Precision: {}".format(precision))
+    print("Accuracy:  {}".format(accuracy))
+    print("Classification report: \n{}".format(report))
+    
 def remove_empty_intent_examples(targets, predictions):
     """Removes those examples without intent."""
     targets = np.array(targets)
@@ -174,6 +177,10 @@ def evaluate_entities(targets, predictions, tokens, extractors):  # pragma: no c
 
     Logs precision, recall, and F1 per entity type for each extractor.
     """
+    from sklearn.metrics import confusion_matrix
+    from sklearn.utils.multiclass import unique_labels
+    from matplotlib.pyplot as plt
+    
     aligned_predictions = []
     for ts, ps, tks in zip(targets, predictions, tokens):
         aligned_predictions.append(align_entity_predictions(ts, ps, tks, extractors))
@@ -187,7 +194,10 @@ def evaluate_entities(targets, predictions, tokens, extractors):  # pragma: no c
         logger.info("Evaluation for entity extractor: {} ".format(extractor))
         log_evaluation_table(merged_targets, merged_predictions)
 
-
+     cnf_matrix = confusion_matrix(merged_targets, merged_predictions)
+     plot_confusion_matrix(cnf_matrix, classes=unique_labels(merged_targets, merged_predictions),
+                           title  = 'Entity Confusion Matrix'    
+ 
 def is_token_within_entity(token, entity):
     """Checks if a token is within the boundaries of an entity."""
     return determine_intersection(token, entity) == len(token.text)
@@ -265,8 +275,8 @@ def determine_token_labels(token, entities):
     if len(entities) == 0:
         return "O"
 
-    if do_entities_overlap(entities):
-        raise ValueError("The possible entities should not overlap")
+   # if do_entities_overlap(entities):
+    #    raise ValueError("The possible entities should not overlap")
 
     candidates = find_intersecting_entites(token, entities)
     return pick_best_entity_fit(token, candidates)
