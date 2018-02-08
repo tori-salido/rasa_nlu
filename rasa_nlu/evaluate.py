@@ -179,7 +179,7 @@ def evaluate_entities(targets, predictions, tokens, extractors):  # pragma: no c
     """
     from sklearn.metrics import confusion_matrix
     from sklearn.utils.multiclass import unique_labels
-    from matplotlib.pyplot as plt
+    import matplotlib.pyplot as plt
     
     aligned_predictions = []
     for ts, ps, tks in zip(targets, predictions, tokens):
@@ -194,9 +194,9 @@ def evaluate_entities(targets, predictions, tokens, extractors):  # pragma: no c
         logger.info("Evaluation for entity extractor: {} ".format(extractor))
         log_evaluation_table(merged_targets, merged_predictions)
 
-     cnf_matrix = confusion_matrix(merged_targets, merged_predictions)
-     plot_confusion_matrix(cnf_matrix, classes=unique_labels(merged_targets, merged_predictions),
-                           title  = 'Entity Confusion Matrix'    
+    cnf_matrix = confusion_matrix(merged_targets, merged_predictions)
+    plot_confusion_matrix(cnf_matrix, classes=unique_labels(merged_targets, merged_predictions),
+                           title  = 'Entity Confusion Matrix')    
  
 def is_token_within_entity(token, entity):
     """Checks if a token is within the boundaries of an entity."""
@@ -414,7 +414,7 @@ def run_evaluation(config, model_path, component_builder=None):  # pragma: no co
         extractors = patch_duckling_extractors(interpreter, extractors)
 
     evaluate_intents(intent_targets, intent_predictions)
-    evaluate_entities(entity_targets, entity_predictions, tokens, extractors)
+   # evaluate_entities(entity_targets, entity_predictions, tokens, extractors)
 
 
 def run_cv_evaluation(data, n_folds, nlu_config):
